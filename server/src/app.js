@@ -22,6 +22,12 @@ app.get('/status', (req, res) => {
     })
 })
 
+app.post('/register', (req, res) => {
+    res.send({
+        message: `Hello ${req.body.email}! Your user was registered`
+    })
+})
+
 app.listen(process.env.PORT || 3000, function() {
     console.log("server now listening on port 3000")
 });
