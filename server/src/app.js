@@ -3,6 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const { sequelize } = require('./models')
+const config = require('./config/config')
 
 // support parsing of application/json type post data
     app.use(bodyParser.json());
@@ -16,18 +18,12 @@ const morgan = require('morgan');
 // HTTP request logger middleware for node.js
     app.use(morgan('combined'))
 
-app.get('/status', (req, res) => {
-    res.send({
-        message: "You go, server!"
-    })
-})
+require('./routes')(app)
 
-app.post('/register', (req, res) => {
-    res.send({
-        message: `Hello ${req.body.email}! Your user was registered`
+sequelize.sync()
+    .then(() => {
+        app.listen(config.port, function() {
+            console.log(`server now listening on port ${config.port}`)
+        }); 
     })
-})
 
-app.listen(process.env.PORT || 3000, function() {
-    console.log("server now listening on port 3000")
-});
