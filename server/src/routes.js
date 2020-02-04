@@ -6,5 +6,8 @@ module.exports = (app) => {
             message: "You go, server!"
         })
     }),
-    app.post('/register', AuthenticationControllerPolicy.register, AuthenticationController.register)
+    app.post('/register', 
+        AuthenticationControllerPolicy.register, AuthenticationController.register),
+    app.post('/login', 
+        AuthenticationController.login)
 }
