@@ -11,6 +11,8 @@
   "dependencies": {
     "@hapi/joi": "^17.1.0",
     "axios": "^0.19.2",
+    "bcrypt": "^3.0.7",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "core-js": "^3.4.4",
     "cors": "^2.8.5",
@@ -21,7 +23,9 @@
     "sequelize": "^5.21.3",
     "sqlite3": "^4.1.1",
     "vue": "^2.6.10",
-    "vue-router": "^3.1.5"
+    "vue-router": "^3.1.5",
+    "vuex": "^3.1.2",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",

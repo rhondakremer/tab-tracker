@@ -1,8 +1,8 @@
 <template>
     <div>
         <h1 id="logo" @click="navigateTo({name: '/'})">Tab Tracker</h1>
-        <button @click="navigateTo({name:'register'})">Sign Up</button>
-        <button @click="navigateTo({name:'login'})">Login</button>
+        <button v-if="!$store.state.isUserLoggedIn" @click="navigateTo({name:'register'})">Sign Up</button>
+        <button v-if="!$store.state.isUserLoggedIn" @click="navigateTo({name:'login'})">Login</button>
     </div>
 </template>
 

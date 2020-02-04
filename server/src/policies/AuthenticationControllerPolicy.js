@@ -10,6 +10,7 @@ module.exports = {
                 new RegExp('^[a-zA-Z0-9]{8,32}$')
             )
         });
+        // eslint-disable-next-line no-unused-vars
         const {error, value} = schema.validate(req.body)
         if (error) {
             switch (error.details[0].context.key) {

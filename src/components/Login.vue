@@ -27,15 +27,17 @@ export default {
   //   }
   // },
   methods: {
-    async register() {
-      // console.log("register button was clicked", this.email, this.password)
+    async login() {
+      // console.log("login button was clicked", this.email, this.password)
       try {
-        await AuthenticationService.register({
-        email: this.email,
-        password: this.password
-      })
+        const response = await AuthenticationService.login({
+            email: this.email,
+            password: this.password
+        })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
-        this.error = error.response.data.error
+            this.error = error.response.data.error
       } 
     }
   }
