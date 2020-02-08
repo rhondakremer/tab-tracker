@@ -1,19 +1,21 @@
 <template>
   <div>
-    <h1>Register</h1>
-    <form name="tab-tracker-form">
-    <input type="email" name="email" v-model="email" placeholder="email">
-    <br>
-    <input type="password" name="password" v-model="password" placeholder="password" autocomplete="new-password">
-    <br>
-    <div class="error" v-html="error" />
-    </form>
-    <button @click="register">Register</button>
+    <Panel title="Register">
+      <form name="tab-tracker-form">
+      <input type="email" name="email" v-model="email" placeholder="email">
+      <br>
+      <input type="password" name="password" v-model="password" placeholder="password" autocomplete="new-password">
+      <br>
+      <div class="error" v-html="error" />
+      </form>
+      <button @click="register">Register</button>
+    </Panel>
   </div>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
+import Panel from '@/components/Panel';
 
 export default {
   data() {
@@ -22,6 +24,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   // watch: {
   //   email(value) {

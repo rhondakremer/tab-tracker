@@ -1,17 +1,19 @@
 <template>
   <div>
-    <h1>Login</h1>
-    <input type="email" name="email" v-model="email" placeholder="email">
-    <br>
-    <input type="password" name="password" v-model="password" placeholder="password">
-    <br>
-    <div class="error" v-html="error" />
-    <button @click="login">Login</button>
+    <Panel title="Login">
+      <input type="email" name="email" v-model="email" placeholder="email">
+      <br>
+      <input type="password" name="password" v-model="password" placeholder="password">
+      <br>
+      <div class="error" v-html="error" />
+      <button @click="login">Login</button>
+    </Panel>
   </div>
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
+import Panel from '@/components/Panel';
 
 export default {
   data() {
@@ -20,6 +22,9 @@ export default {
       password: '',
       error: null
     }
+  },
+  components: {
+    Panel
   },
   // watch: {
   //   email(value) {

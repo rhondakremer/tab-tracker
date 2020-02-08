@@ -1,6 +1,7 @@
 const Promise = require('bluebird');
 const bcrypt = Promise.promisifyAll(require('bcrypt'));
 
+// eslint-disable-next-line no-unused-vars
 function hashPassword(user, options) {
     const SALT_FACTOR = 8
     
