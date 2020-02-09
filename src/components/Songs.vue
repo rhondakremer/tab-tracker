@@ -1,8 +1,11 @@
 <template>
     <div>
    <Panel title="Songs">
-       <h3>I am the h3</h3>
-       <p>I'm in the slot bitch</p>
+        <div v-for="song in songs" :key="song.title">
+            {{song.title}}
+            {{song.album}}
+            {{song.artist}}
+        </div>
     </Panel>
     
   </div>
@@ -10,9 +13,19 @@
 
 <script> 
 import Panel from '@/components/Panel'
+import SongsService from '@/services/SongsService';
+
 export default {
     components: {
         Panel
+    },
+    data() {
+        return {
+            songs: []
+        }
+    },
+    async mounted() {
+        this.songs = await SongsService.index()
     }
 }
 </script>

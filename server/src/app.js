@@ -20,7 +20,7 @@ const config = require('./config/config')
 
 require('./routes')(app)
 
-sequelize.sync()
+sequelize.sync({ force:false })
     .then(() => {
         app.listen(config.port, function() {
             console.log(`server now listening on port ${config.port}`)
