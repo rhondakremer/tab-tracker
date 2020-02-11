@@ -5,6 +5,9 @@ export default {
     index() {
         return Api().get('songs')
     },
+    post(newSong) {
+        return Api().post('songs/create', newSong)
+    }
     
 }
 
