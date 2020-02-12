@@ -8,6 +8,9 @@
             <img :src="song.albumImageUrl" />
             <p style="white-space: pre;">Lyrics: {{song.lyrics}}</p>
             <p>Tabs: {{song.tabs}}</p>
+            <youtube :video-id="song.youtubeId" :player-width="600"
+            :player-height="300"></youtube>
+            <button @click="navigateTo({ name: 'edit', params: {songId: song.id}})">Edit Song</button>
         </div>
     </Panel>
 </template>
@@ -30,6 +33,11 @@ export default {
         const song = await SongsService.show(songId)
         this.song = song.data[0]
         console.log(this.song)
+    },
+    methods: {
+        navigateTo(route) {
+            this.$router.push(route)
+        }
     }
 }
 </script>

@@ -36,5 +36,20 @@ module.exports = {
                 error: 'An error has occurred trying to create a song'
             })
         }
+    },
+    async save(req, res) {
+        console.log(req.body)
+        try {
+            const song = await Song.update(req.body, {
+                where: {
+                    id: req.params.songId
+                }
+            })
+            res.send(song)    
+        } catch (err) {
+            res.status(500).send({
+                error: 'An error has occurred trying to update the song'
+            })
+        }
     }
 }

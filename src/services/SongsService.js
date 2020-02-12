@@ -10,6 +10,9 @@ export default {
     },
     post(newSong) {
         return Api().post('songs', newSong)
+    },
+    put(song) {
+        return Api().put(`songs/${song.id}`, song)
     }
 }
 
