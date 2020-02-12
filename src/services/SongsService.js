@@ -5,10 +5,12 @@ export default {
     index() {
         return Api().get('songs')
     },
+    show(songId) {
+        return Api().get(`songs/${songId}`)
+    },
     post(newSong) {
-        return Api().post('songs/create', newSong)
+        return Api().post('songs', newSong)
     }
-    
 }
 
 // index for get all
